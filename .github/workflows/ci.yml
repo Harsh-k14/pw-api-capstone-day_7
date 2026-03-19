@@ -1,0 +1,28 @@
+name: PW API CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ vars.BASE_URL }}
+      USER: ${{ secrets.API_USER }}
+      PASS: ${{ secrets.API_PASS }}
+      AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+      PRODUCTS_LIMIT: ${{ vars.PRODUCTS_LIMIT }}
+      PRODUCTS_SEARCH_Q: ${{ vars.PRODUCTS_SEARCH_Q }}
+      USERS_SEARCH_Q: ${{ vars.USERS_SEARCH_Q }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npm run test:api
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pw-report
+          path: playwright-report

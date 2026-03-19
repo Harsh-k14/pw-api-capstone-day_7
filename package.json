@@ -1,0 +1,49 @@
+{
+  "name": "pw-api-capstone",
+  "version": "1.0.0",
+  "description": "Playwright API automation framework for DummyJSON — capstone project",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --grep \"@api\"",
+    "test:api": "playwright test --grep \"@api\"",
+    "test:smoke": "playwright test --grep \"@smoke\"",
+    "test:regression": "playwright test --grep \"@regression\"",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "api-testing",
+    "typescript",
+    "dummyjson"
+  ],
+  "author": "Harsh",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "ajv": "^8.18.0",
+    "dotenv": "^17.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "acorn": "^8.16.0",
+    "acorn-walk": "^8.3.5",
+    "arg": "^4.1.3",
+    "create-require": "^1.1.1",
+    "diff": "^4.0.4",
+    "fast-deep-equal": "^3.1.3",
+    "fast-uri": "^3.1.0",
+    "json-schema-traverse": "^1.0.0",
+    "make-error": "^1.3.6",
+    "playwright": "^1.58.2",
+    "playwright-core": "^1.58.2",
+    "require-from-string": "^2.0.2",
+    "undici-types": "^7.18.2",
+    "v8-compile-cache-lib": "^3.0.1",
+    "yn": "^3.1.1"
+  }
+}
