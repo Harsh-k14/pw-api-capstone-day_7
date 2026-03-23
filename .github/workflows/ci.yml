@@ -31,6 +31,6 @@ jobs:
         with:
           name: pw-machine-reports
           path: |
-            reports/junit/results.xml
-            reports/json/results.json
+            reports/junit.xml
+            reports/report.json
           if-no-files-found: warn
