@@ -26,3 +26,11 @@ jobs:
         with:
           name: pw-report
           path: playwright-report
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pw-machine-reports
+          path: |
+            reports/junit/results.xml
+            reports/json/results.json
+          if-no-files-found: warn
